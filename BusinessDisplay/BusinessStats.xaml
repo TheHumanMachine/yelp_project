@@ -1,0 +1,87 @@
+﻿<UserControl x:Class="UIPractive.BusinessStats"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UIPractive"
+             mc:Ignorable="d" 
+             d:DesignHeight="120" d:DesignWidth="450">
+    <Grid Background="#36393f">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Name="hoursCol"/>
+            <ColumnDefinition Name="distanceCol"/>
+            <ColumnDefinition Name="starCol"/>
+            <ColumnDefinition Name="reviewsCol"/>
+            <ColumnDefinition Name="reviewsRatingCol"/>
+            <ColumnDefinition Name="checkinsCol"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Hours Grid  -->
+        <Grid Name="hoursGrid" Grid.Column="0">
+            <StackPanel>
+                <Image RenderOptions.BitmapScalingMode="HighQuality"  Source="/UIPractive;component/Icons/clockIcon.png" 
+                       MaxHeight="30" MaxWidth="50"  VerticalAlignment="Center"/>
+                <Label HorizontalContentAlignment="Center" Foreground="#bcb4c5">Hours</Label>
+                <TextBox Name="hoursTextBox" Foreground="#bcb4c5" Background="#36393f" HorizontalContentAlignment="Center" 
+                         IsReadOnly="True" BorderThickness="0" FontWeight="Bold" Padding="0,0,0,2"></TextBox>
+            </StackPanel>
+        </Grid>
+
+        <!-- Distance Grid  -->
+        <Grid Name="distanceGrid" Grid.Column="1">
+            <StackPanel Grid.Column="1">
+                <Image RenderOptions.BitmapScalingMode="HighQuality"  Source="/UIPractive;component/Icons/distanceIcon.png" 
+                       MaxHeight="50" MaxWidth="50"  VerticalAlignment="Center"/>
+                <Label HorizontalContentAlignment="Center" Foreground="#bcb4c5">Distance:</Label>
+                <TextBox Name="distanceTextBox" Foreground="#bcb4c5" Background="#36393f" HorizontalContentAlignment="Center" 
+                         IsReadOnly="True" BorderThickness="0" FontWeight="Bold" Padding="0,0,0,2"></TextBox>
+            </StackPanel>
+        </Grid>
+
+        <!-- Star Grid  -->
+        <Grid Name="starGrid" Grid.Column="2">
+            <StackPanel>
+                <Image RenderOptions.BitmapScalingMode="HighQuality" Source="/uipractive;component/Icons/starIcon.png" 
+                       MaxHeight="50" MaxWidth="50" Height="97" VerticalAlignment="Center"/>
+                <Label HorizontalContentAlignment="Center" Foreground="#bcb4c5">Stars:</Label>
+                <TextBox Name="starTextBox" Foreground="#bcb4c5" Background="#36393f" HorizontalContentAlignment="Center" 
+                             IsReadOnly="True" BorderThickness="0" FontWeight="Bold" Padding="0,0,0,2"></TextBox>
+            </StackPanel>
+        </Grid>
+
+        <!-- Review Grid  -->
+        <Grid Name="reviewGrid" Grid.Column="3">
+            <StackPanel>
+                <Image Source="/UIPractive;component/Icons/reviewIcon.png" RenderOptions.BitmapScalingMode="HighQuality" 
+                       MaxHeight="50" MaxWidth="50" Height="97" VerticalAlignment="Center"/>
+                <Label HorizontalContentAlignment="Center" Foreground="#bcb4c5">Reviews:</Label>
+                <TextBox Name="reviewTextBox" Foreground="#bcb4c5" Background="#36393f" HorizontalContentAlignment="Center" 
+                             IsReadOnly="True" BorderThickness="0" FontWeight="Bold" Padding="0,0,0,2"></TextBox>
+            </StackPanel>
+        </Grid>
+
+        <!-- Review n Rating Grid  -->
+        <Grid Name="reviewRatingGrid" Grid.Column="4">
+            <StackPanel>
+                <Image RenderOptions.BitmapScalingMode="HighQuality" Source="/UIPractive;component/Icons/reviewRatingIcon.png"
+                       MaxHeight="50" MaxWidth="50" Height="97" VerticalAlignment="Center" Stretch="Fill"/>
+                <Label HorizontalContentAlignment="Center" Foreground="#bcb4c5">Review Ratings:</Label>
+                <TextBox Name="reviewRatingTextBox" Foreground="#bcb4c5" Background="#36393f" HorizontalContentAlignment="Center" 
+                             IsReadOnly="True" BorderThickness="0" FontWeight="Bold" Padding="0,0,0,2"></TextBox>
+            </StackPanel>
+        </Grid>
+
+        <!-- Check In Grid  -->
+        <Grid Name="checkinGrid" Grid.Column="5">
+            <StackPanel>
+                <Image RenderOptions.BitmapScalingMode="HighQuality" Source="/UIPractive;component/Icons/checkInIcon.png" 
+                       MaxHeight="50" MaxWidth="50" Height="97" VerticalAlignment="Center"/>
+                <Label HorizontalContentAlignment="Center" Foreground="#bcb4c5">Check Ins:</Label>
+                <TextBox Name="checkinTextBox" Foreground="#bcb4c5" Background="#36393f" HorizontalContentAlignment="Center" 
+                             IsReadOnly="True" BorderThickness="0" FontWeight="Bold" Padding="0,0,0,2"></TextBox>
+            </StackPanel>
+        </Grid>
+
+
+    </Grid>
+</UserControl>

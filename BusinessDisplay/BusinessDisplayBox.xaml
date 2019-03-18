@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="UIPractive.BusinessDisplayBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UIPractive"
+             Padding="2,0,0,0"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="450" MinWidth="150" MouseDoubleClick="UserControl_MouseDoubleClick">
+  
+    
+    <!--Main Grid-->
+    <Grid Background="#36393f">
+        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Name="UpperSection" MinHeight="90" Height="10*"></RowDefinition>
+                <RowDefinition Name="LowerSection" Height="14*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <!--Upper Section | Includes business icon, Bussines Name, Address, City, State, Zip-->
+            <Grid Name="UpperGrid" Grid.Row="0"/>
+
+
+            <!--Lower Section | Includes business Hours, Icons{Review, review rating, distance, stars, checkins-->
+            <Grid Name="LowerGrid"  Grid.Row="1"/>
+
+
+        </Grid>
+        <Border BorderBrush="#44578c" BorderThickness="1"/>
+    </Grid>
+</UserControl>

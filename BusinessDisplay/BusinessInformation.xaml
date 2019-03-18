@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="UIPractive.BusinessInformation"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UIPractive"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="450">
+    <Grid Background="#36393f">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MaxWidth="80" Name="businessIcon"/>
+            <ColumnDefinition Name="businessInfo"/>
+        </Grid.ColumnDefinitions>
+        
+        <!--Column 0 | Business Icon-->
+        <Image RenderOptions.BitmapScalingMode="HighQuality" Source="/uipractive;component/Icons/businessIcon.png"  Grid.ColumnSpan="1" 
+               MaxHeight="80" RenderTransformOrigin="0.464,0.51" VerticalAlignment="Top"/>
+        
+        <!--Column 1 | Business Info-->
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" Name="nameRow"/>
+                <RowDefinition Name="addressRow"/>
+            </Grid.RowDefinitions>
+            <!--Business Name Row-->
+            <TextBox Name="nameTextBox" BorderThickness="0" FontSize="16" Foreground="#bcb4c5" IsReadOnly="True"
+                     Padding="2" Background="#36393f"></TextBox>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50" Name="businessLabels"/>
+                    <ColumnDefinition Name="businessTextbox"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" Name="addressInfoRow"/>
+                    <RowDefinition Height="auto" Name="cityRow"/>
+                    <RowDefinition Height="auto" Name="stateRow"/>
+                    <RowDefinition Height="auto" Name="zipcodeRow"/>
+                </Grid.RowDefinitions>
+                <!--Address Information Labels-->
+                <Label Name="addressLabel" FontSize="10" Padding="2" Foreground="#bcb4c5" Background="#36393f" Grid.Column="0" Grid.Row="0">Address:</Label>
+                <Label Name="cityLabel" FontSize="10" Padding="2" Foreground="#bcb4c5" Background="#36393f" Grid.Column="0" Grid.Row="1">City:</Label>
+                <Label Name="stateLabel" FontSize="10" Padding="2" Foreground="#bcb4c5" Background="#36393f" Grid.Column="0" Grid.Row="2">State:</Label>
+                <Label Name="zipcodeLabel" FontSize="10" Padding="2" Foreground="#bcb4c5" Background="#36393f" Grid.Column="0" Grid.Row="3">Zipcode:</Label>
+
+                <!--Address Information Textboxs-->
+                <TextBox Name="addressTextBox" HorizontalContentAlignment="Left" BorderThickness="0" FontSize="10" IsReadOnly="True"
+                         Padding="2" Foreground="#bcb4c5" Background="#36393f" Grid.Column="1" Grid.Row="0"/>
+
+                <TextBox Name="cityTextBox" HorizontalContentAlignment="Left" BorderThickness="0" FontSize="10" IsReadOnly="True"
+                         Padding="2" Foreground="#bcb4c5" Background="#36393f" Grid.Column="1" Grid.Row="1" />
+
+                <TextBox Name="stateTextBox" HorizontalContentAlignment="Left" BorderThickness="0" FontSize="10" IsReadOnly="True"
+                         Padding="2" Foreground="#bcb4c5" Background="#36393f" Grid.Column="1" Grid.Row="2"/>
+
+                <TextBox Name="zipcodeTextBox" HorizontalContentAlignment="Left" BorderThickness="0" FontSize="10" IsReadOnly="True"
+                         Padding="2" Foreground="#bcb4c5" Background="#36393f" Grid.Column="1" Grid.Row="3"/>
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+
+</UserControl>

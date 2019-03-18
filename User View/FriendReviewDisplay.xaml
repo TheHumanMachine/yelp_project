@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="UIPractive.User_View.FriendReviewDisplay"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UIPractive.User_View"
+             mc:Ignorable="d" 
+             Padding="4"
+             d:DesignHeight="600" d:DesignWidth="550">
+   
+    <Grid Background="#252524">
+        <GroupBox Header="Friend Reviews" Foreground="#bcb4c5" BorderBrush="#bcb4c5">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <Grid>
+                    <StackPanel Name="displayStackPanel">
+                    </StackPanel>
+                </Grid>
+            </ScrollViewer>
+        </GroupBox>
+    </Grid>
+</UserControl>

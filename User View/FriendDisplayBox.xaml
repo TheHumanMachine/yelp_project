@@ -1,0 +1,113 @@
+﻿<UserControl x:Class="UIPractive.User_View.FriendDisplayBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UIPractive.User_View"
+             mc:Ignorable="d" 
+             d:DesignHeight="130" d:DesignWidth="250" Height="130" Width="250">
+
+    <Grid Background="#333333">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="111*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Name, joined, profile, emojies... -->
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="67*"/>
+                <RowDefinition Height="63*"/>
+            </Grid.RowDefinitions>
+            <!-- Name, joined, profile pic -->
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="19*"/>
+                </Grid.ColumnDefinitions>
+                <!-- Column 0 | Profile Picture -->
+                <Image RenderOptions.BitmapScalingMode="HighQuality" Source="/uipractive;component/Icons/profileIcon.png" 
+                         MaxHeight="48" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0" Height="56" Width="59" Grid.ColumnSpan="2"/>
+
+                <!-- Column 1 | User name, yelper since...-->
+                <Grid Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="11*"/>
+                        <ColumnDefinition Width="52*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="24*"/>
+                        <RowDefinition Height="43*"/>
+                    </Grid.RowDefinitions>
+                    <!-- UserName, Join labels n TextBox-->
+                    <Label Name="userNameLabel" Foreground="#bcb4c5" Background="#333333" HorizontalContentAlignment="Center" FontSize="10"
+                             BorderThickness="0" Padding="2,0,0,2" Grid.Row="0" VerticalContentAlignment="Center" Content="Name:" Grid.Column="0"/>
+
+                    <Label Name="joinedLabel" Foreground="#bcb4c5" Background="#333333" HorizontalContentAlignment="Right" FontSize="8"
+                             BorderThickness="0" Padding="2,0,0,2" Grid.Row="1" VerticalContentAlignment="Top" Content="Joined:" Grid.Column="0"/>
+
+                    <TextBox Name="userNameTextBox" Foreground="#bcb4c5" Background="#333333" HorizontalContentAlignment="Left" FontSize="10"
+                             IsReadOnly="True" BorderThickness="0" Padding="0,0,0,0" Grid.Row="0" VerticalContentAlignment="Center" Grid.Column="1"/>
+
+                    <TextBox Name="joinedTextBox" Foreground="#bcb4c5" Background="#333333" HorizontalContentAlignment="Left" FontSize="8"
+                             IsReadOnly="True" BorderThickness="0" Padding="0,0,0,2" Grid.Row="1" VerticalContentAlignment="Top" Grid.Column="1"/>
+
+                </Grid>
+            </Grid>
+
+            <!-- Emojies -->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="16*"/>
+                    <RowDefinition Height="16*"/>
+                    <RowDefinition Height="21*"/>
+                    <RowDefinition Height="10*"/>
+                </Grid.RowDefinitions>
+                <!--Images-->
+                <Image RenderOptions.BitmapScalingMode="HighQuality" Source="/uipractive;component/Icons/funnyIcon.png" 
+                       MaxHeight="25" MaxWidth="25" Height="98" VerticalAlignment="Center" Grid.Column="0" Grid.Row="0" Margin="0,-49,0,4" Grid.RowSpan="3"/>
+
+                <Image RenderOptions.BitmapScalingMode="HighQuality" Source="/uipractive;component/Icons/coolIcon.png" 
+                       MaxHeight="25" MaxWidth="25" Height="98" VerticalAlignment="Center" Grid.Column="1" Grid.Row="0" Margin="0,-49,0,4" Grid.RowSpan="3"/>
+
+                <Image RenderOptions.BitmapScalingMode="HighQuality" Source="/uipractive;component/Icons/usefulIcon.png" 
+                       MaxHeight="25" MaxWidth="25" Height="98" VerticalAlignment="Center" Grid.Column="2" Grid.Row="0" Margin="0,-49,0,4" Grid.RowSpan="3"/>
+
+                <Image RenderOptions.BitmapScalingMode="HighQuality" Source="/uipractive;component/Icons/reviewStarIcon.png" 
+                       MaxHeight="25" MaxWidth="25" Height="98" VerticalAlignment="Center" Grid.Column="3" Grid.Row="0" Margin="0,-49,0,4" Grid.RowSpan="3"/>
+
+   
+
+                <!-- Labels in Column 0-4 Row 1-->
+                <Label Grid.Column="0" FontSize="8" Grid.Row="1" Padding="0" Foreground="#bcb4c5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">Funny</Label>
+                <Label Grid.Column="1" FontSize="8" Grid.Row="1" Padding="0" Foreground="#bcb4c5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">Cool</Label>
+                <Label Grid.Column="2" FontSize="8" Grid.Row="1" Padding="0" Foreground="#bcb4c5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">Useful</Label>
+                <Label Grid.Column="3" FontSize="8" Grid.Row="1" Padding="0" Foreground="#bcb4c5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">Stars</Label>
+
+
+                <!--TextBoxes for Funny/Cool/Useful/Stars/Fans-->
+                <TextBox Name="funnyTextBox" Foreground="#bcb4c5" Background="#333333" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                             IsReadOnly="True" BorderThickness="0" FontWeight="Bold" Padding="0,0,0,2" Grid.Column="0" Grid.Row="2"/>
+
+                <TextBox Name="coolTextBox" Foreground="#bcb4c5" Background="#333333" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                             IsReadOnly="True" BorderThickness="0" FontWeight="Bold" Padding="0,0,0,2" Grid.Column="1" Grid.Row="2"/>
+
+                <TextBox Name="usefulTextBox" Foreground="#bcb4c5" Background="#333333" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                             IsReadOnly="True" BorderThickness="0" FontWeight="Bold" Padding="0,0,0,2" Grid.Column="2" Grid.Row="2"/>
+
+                <TextBox Name="starTextBox" Foreground="#bcb4c5" Background="#333333" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                             IsReadOnly="True" BorderThickness="0" FontWeight="Bold" Padding="0,0,0,2" Grid.Column="3" Grid.Row="2"/>
+            </Grid>
+
+        </Grid>
+        <Border BorderBrush="#a3a1a0" BorderThickness="1"/>
+    </Grid>
+
+</UserControl>

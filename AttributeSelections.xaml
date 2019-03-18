@@ -1,0 +1,103 @@
+﻿<UserControl x:Class="UIPractive.AttributeSelections"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UIPractive"
+             mc:Ignorable="d" 
+             d:DesignHeight="350" d:DesignWidth="176">
+
+
+
+
+    <ScrollViewer Padding="0" VerticalScrollBarVisibility="Auto">
+        <Grid Name="dropDown" Background="#202225">
+            <Grid.RowDefinitions>
+                <!-- rows 0 - 6  -->
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Expander Header="State" Grid.Row="0" Foreground="#d1c9da" Background="#2f3136" Padding="2">
+                <ScrollViewer MaxHeight="100" VerticalScrollBarVisibility="Auto">
+                    <ListBox Name="stateBox" BorderBrush="Transparent" Background="#363d50" Foreground="#d1c9da">
+                    </ListBox>
+                </ScrollViewer>
+            </Expander>
+
+            <Expander Header="City" Grid.Row="1" Foreground="#d1c9da" Background="#2f3136">
+                <ScrollViewer MaxHeight="100" VerticalScrollBarVisibility="Auto">
+                    <ListBox Name="cityBox" BorderBrush="Transparent" Background="#363d50" Foreground="#d1c9da">
+                        <ListBoxItem Content="Unit 1"/>
+                        <ListBoxItem Content="Unit 2"/>
+                        <ListBoxItem Content="Unit 1"/>
+                        <ListBoxItem Content="Unit 2"/>
+                    </ListBox>
+                </ScrollViewer>
+            </Expander>
+
+            <Expander Header="Zipcode" Grid.Row="2" Foreground="#d1c9da" Background="#2f3136">
+                <ScrollViewer MaxHeight="100" VerticalScrollBarVisibility="Auto">
+                    <ListBox Name="zipcodeBox" BorderBrush="Transparent" Background="#363d50" Foreground="#d1c9da">
+                    </ListBox>
+                </ScrollViewer>
+            </Expander>
+
+            <Expander Header="Category" Grid.Row="3" Foreground="#d1c9da" Background="#2f3136">
+                <ScrollViewer MaxHeight="100" VerticalScrollBarVisibility="Auto">
+                    <ListBox Name="categoryBox" BorderBrush="Transparent" Background="#363d50" Foreground="#d1c9da">
+                    </ListBox>
+                </ScrollViewer>
+            </Expander>
+
+            <Expander Header="Attributes" Grid.Row="4" Foreground="#d1c9da" Background="#2f3136">
+                <ScrollViewer MaxHeight="100" VerticalScrollBarVisibility="Auto">
+                    <ListBox Name="attributesBox" BorderBrush="Transparent" Background="#363d50" Foreground="#d1c9da">
+                        <CheckBox Foreground="#d1c9da">Accepts Credit Cards</CheckBox>
+                        <CheckBox Foreground="#d1c9da">Takes Reservations</CheckBox>
+                        <CheckBox Foreground="#d1c9da">Wheelchair Accessible</CheckBox>
+                        <CheckBox Foreground="#d1c9da">Outdoor Seating</CheckBox>
+                        <CheckBox Foreground="#d1c9da">Good for Kids</CheckBox>
+                        <CheckBox Foreground="#d1c9da">Good for Groups</CheckBox>
+                        <CheckBox Foreground="#d1c9da">Delivery</CheckBox>
+                        <CheckBox Foreground="#d1c9da">Take Out</CheckBox>
+                        <CheckBox Foreground="#d1c9da">Free Wi-Fi</CheckBox>
+                        <CheckBox Foreground="#d1c9da">Bike Parking</CheckBox>
+                    </ListBox>
+                </ScrollViewer>
+            </Expander>
+
+            <Expander Header="Meal" Grid.Row="5" Foreground="#d1c9da" Background="#2f3136">
+
+                <ScrollViewer Height="120" VerticalScrollBarVisibility="Auto">
+                    <ListBox Name="mealBox" BorderBrush="Transparent" Background="#363d50" Foreground="#d1c9da">
+                        <CheckBox Foreground="#d1c9da">Breakfast</CheckBox>
+                        <CheckBox Foreground="#d1c9da">Brunch</CheckBox>
+                        <CheckBox Foreground="#d1c9da">Lunch</CheckBox>
+                        <CheckBox Foreground="#d1c9da">Dinner</CheckBox>
+                        <CheckBox Foreground="#d1c9da">Dessert</CheckBox>
+                        <CheckBox Foreground="#d1c9da">Late Night</CheckBox>
+                    </ListBox>
+                </ScrollViewer>
+            </Expander>
+
+            <Expander Header="Price" Grid.Row="6" Foreground="#d1c9da" Background="#2f3136">
+
+                <ScrollViewer MinHeight="70" VerticalScrollBarVisibility="Auto">
+                    <ListBox Name="priceBox" BorderBrush="Transparent"  Background="#363d50" Foreground="#d1c9da">
+                        <CheckBox Foreground="#d1c9da">$</CheckBox>
+                        <CheckBox Foreground="#d1c9da">$$</CheckBox>
+                        <CheckBox Foreground="#d1c9da">$$$</CheckBox>
+                        <CheckBox Foreground="#d1c9da">$$$$</CheckBox>
+                    </ListBox>
+                </ScrollViewer>
+            </Expander>
+
+        </Grid>
+    </ScrollViewer>
+</UserControl>

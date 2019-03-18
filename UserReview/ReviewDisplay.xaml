@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="UIPractive.UserReview.ReviewDisplay"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UIPractive.UserReview"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="600">
+    <!-- background: #36393f -->
+    <!-- font color: #bcb4c5 -->
+    <Grid Background="#36393f">
+        <GroupBox Padding="5" Foreground="#bcb4c5" Header="Reviews">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel Name="reviewStackPanel">
+                </StackPanel>
+            </ScrollViewer>
+        </GroupBox>
+    </Grid>
+</UserControl>

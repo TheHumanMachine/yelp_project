@@ -1,0 +1,81 @@
+﻿<UserControl x:Class="UIPractive.UserReview.ReviewDisplayBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UIPractive.UserReview"
+             mc:Ignorable="d" 
+             Padding="2"
+             d:DesignHeight="200" d:DesignWidth="450" MinWidth="150">
+    <!-- background: #36393f -->
+    <!-- font color: #bcb4c5 -->
+    <Grid Background="#36393f">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="146"/>
+            <ColumnDefinition MinWidth="300"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Column 0 | User name, star rating, funny/cool/useful info-->
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="36"/>
+                <RowDefinition Height="24"/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBox Name="userNameTextBox" Foreground="#bcb4c5" Background="#36393f" HorizontalContentAlignment="Left"
+                             IsReadOnly="True" BorderThickness="0" Padding="2,0,0,2" Grid.Row="0" VerticalContentAlignment="Center"/>
+            <TextBox Name="postDateTextBox" Foreground="#bcb4c5" Background="#36393f" HorizontalContentAlignment="Left"
+                             IsReadOnly="True" BorderThickness="0" Padding="2,0,0,2" Grid.Row="1"/>
+
+            <!-- Star + Number displayed together-->
+            <Canvas Grid.Row="2">
+                <Image Canvas.Right="90" RenderOptions.BitmapScalingMode="HighQuality" Source="/uipractive;component/Icons/starIcon.png" 
+                       MaxHeight="50" MaxWidth="50" Height="51" VerticalAlignment="Center" Canvas.Left="52" Canvas.Top="10"/>
+                <Label Name="reviewStarRatingLabel" Canvas.Left="64" Canvas.Top="25"/>
+            </Canvas>
+
+            <Grid Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="23*"/>
+                    <RowDefinition Height="26*"/>
+                    <RowDefinition Height="19*"/>
+                </Grid.RowDefinitions>
+                <!-- funny/cool/useful in Column 1/2/3 Row 0-->
+                <Image RenderOptions.BitmapScalingMode="HighQuality" Source="/uipractive;component/Icons/funnyIcon.png" 
+                       MaxHeight="25" MaxWidth="25" Height="97" VerticalAlignment="Center" Grid.Column="0" Grid.Row="0" Margin="0,-37,0,8" Grid.RowSpan="3"/>
+
+                <Image RenderOptions.BitmapScalingMode="HighQuality" Source="/uipractive;component/Icons/coolIcon.png" 
+                       MaxHeight="25" MaxWidth="25" Height="97" VerticalAlignment="Center" Grid.Column="1" Grid.Row="0" Margin="0,-37,0,8" Grid.RowSpan="3"/>
+
+                <Image RenderOptions.BitmapScalingMode="HighQuality" Source="/uipractive;component/Icons/usefulIcon.png" 
+                       MaxHeight="25" MaxWidth="25" Height="97" VerticalAlignment="Center" Grid.Column="2" Grid.Row="0" Margin="0,-37,0,8" Grid.RowSpan="3"/>
+
+                <!-- Labels in Column 1/2/3 Row 1-->
+                <Label Grid.Column="0" Grid.Row="1" Foreground="#bcb4c5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">Funny</Label>
+                <Label Grid.Column="1" Grid.Row="1" Foreground="#bcb4c5" HorizontalContentAlignment="Center">Cool</Label>
+                <Label Grid.Column="2" Grid.Row="1" Foreground="#bcb4c5" HorizontalContentAlignment="Center">Useful</Label>
+
+                <!--TextBoxes for Funny/Cool/Useful-->
+                <TextBox Name="funnyTextBox" Foreground="#bcb4c5" Background="#36393f" HorizontalContentAlignment="Center" 
+                             IsReadOnly="True" BorderThickness="0" FontWeight="Bold" Padding="0,0,0,2" Grid.Column="0" Grid.Row="2"/>
+
+                <TextBox Name="coolTextBox" Foreground="#bcb4c5" Background="#36393f" HorizontalContentAlignment="Center"
+                             IsReadOnly="True" BorderThickness="0" FontWeight="Bold" Padding="0,0,0,2" Grid.Column="1" Grid.Row="2"/>
+
+                <TextBox Name="usefulTextBox" Foreground="#bcb4c5" Background="#36393f" HorizontalContentAlignment="Center"
+                             IsReadOnly="True" BorderThickness="0" FontWeight="Bold" Padding="0,0,0,2" Grid.Column="2" Grid.Row="2"/>
+
+            </Grid>
+
+        </Grid>
+
+        <!-- Column 1 | user review text -->
+        <TextBlock Name="reviewTextBlock" Padding="5" TextWrapping="Wrap" Grid.Column="1" Foreground="#bcb4c5"/>
+    </Grid>
+</UserControl>

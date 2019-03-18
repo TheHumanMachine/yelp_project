@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="UIPractive.User_View.UserMainView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:user_view="clr-namespace:UIPractive.User_View"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="900">
+    <Grid Background="#3f3e45">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="7*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Column 0 | User profile-->
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="17*"/>
+                <RowDefinition Height="58*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Row 0 | User Profile Info for everything related to the user-->
+            <user_view:UserProfile x:Name="userInfo" Grid.Row="0"/>
+
+            <!-- Row 1 | Change user, favorite business, Friend list-->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <!-- Set User, favorite business -->
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="11*"/>
+                        <RowDefinition Height="35*"/>
+                    </Grid.RowDefinitions>
+                    <!-- Row 0 | Set User-->
+                    <user_view:SetUserDisplay x:Name="setUserDisplay" Grid.Row="0"/>
+                    <!-- Row 1 | Favorite business display-->
+                    <user_view:FavoriteBusinessDisplay x:Name="businessDisplay" Grid.Row="1"></user_view:FavoriteBusinessDisplay>
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <user_view:FriendsList x:Name="friendList"  />
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <!-- Column1 | Friend reviews-->
+        <user_view:FriendReviewDisplay x:Name="friendReviewDisplay" Grid.Column="1">
+
+        </user_view:FriendReviewDisplay>
+    </Grid>
+</UserControl>
