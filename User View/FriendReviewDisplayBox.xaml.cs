@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UIPractive.DB_Classes;
 
 namespace UIPractive.User_View
 {
@@ -21,52 +22,39 @@ namespace UIPractive.User_View
     public partial class FriendReviewDisplayBox : UserControl
     {
 
-        public FriendReviewDisplayBox()
+        public FriendReviewDisplayBox(Review rev)
         {
             InitializeComponent();
 
 
         }
 
-        public void SetReviewText(string rev)
+
+        public string UserName
         {
-            reviewTextBlock.Text = rev;
+            get { return userNameTextBox.Text; }
+            set
+            {
+                if (value != userNameTextBox.Text)
+                {
+                    userNameTextBox.Text = value;
+                }
+            }
         }
 
-        public void SetBusinessName(string bus)
+        public string Date
         {
-            businessTextBox.Text = bus;
+            get { return postDateTextBox.Text; }
+            set
+            {
+                if (value != postDateTextBox.Text)
+                {
+                    postDateTextBox.Text = value;
+                }
+            }
         }
 
-        public void SetUsername(string user)
-        {
-            userNameTextBox.Text = user;
-        }
-
-        public void SetJoined(string date)
-        {
-            postDateTextBox.Text = date;
-        }
-
-        //public void SetStarRating(string num)
-        //{
-        //    reviewStarRatingLabel.Content = num + "/5";
-        //}
-
-        //public void SetFunnyRating(int fun)
-        //{
-        //    funnyTextBox.Text = fun.ToString();
-        //}
-
-        //public void SetCoolRating(int cool)
-        //{
-        //    coolTextBox.Text = cool.ToString();
-        //}
-
-        //public void SetUsefulRating(int useful)
-        //{
-        //    usefulTextBox.Text = useful.ToString();
-        //}
+      
 
     }
 }

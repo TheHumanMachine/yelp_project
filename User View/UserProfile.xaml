@@ -9,12 +9,12 @@
 
     <UserControl.Resources>
         <Style TargetType="TextBox">
-            <Setter Property="Background" Value="#3f3e45"/>
+            <Setter Property="Background" Value="#202225"/>
             <Setter Property="Foreground" Value="#bcb4c5"/>
         </Style>
     </UserControl.Resources>
-    
-    <Grid Background="#3f3e45">
+
+    <Grid Background="#202225">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="196*"/>
             <ColumnDefinition Width="69*"/>
@@ -125,14 +125,15 @@
 
         <Grid Grid.Column="2">
             <Grid.RowDefinitions>
-                <RowDefinition Height="57*"/>
-                <RowDefinition Height="16*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="10*"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
-                <RowDefinition Height="30*"/>
+                <RowDefinition Height="15*"/>
+                <RowDefinition Height="4*"/>
             </Grid.RowDefinitions>
             <Image RenderOptions.BitmapScalingMode="HighQuality" Source="/uipractive;component/Icons/locationIcon.png" 
-                       MaxHeight="50" MaxWidth="50" Height="98" VerticalAlignment="Center" Grid.Row="0"/>
+                       MaxHeight="50" MaxWidth="50" Height="98" VerticalAlignment="Center" Grid.Row="0" Margin="0,-14,0,6" Grid.RowSpan="2"/>
 
             <Label Grid.Row="1" Foreground="#bcb4c5" HorizontalContentAlignment="Center" Padding="0"  VerticalContentAlignment="Top">Location</Label>
 
@@ -142,7 +143,7 @@
                     <ColumnDefinition Width="41*"/>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" Foreground="#bcb4c5" FontSize="8" Padding="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center">Lat:</Label>
-                <TextBox Name="latTextBox" Grid.Column="1" FontSize="8"  HorizontalContentAlignment="Left"  BorderThickness="0">0</TextBox>
+                <TextBox Name="latTextBox" Grid.Column="1" FontSize="8"  HorizontalContentAlignment="Left"  BorderThickness="0" IsReadOnly="True">0</TextBox>
             </Grid>
 
             <Grid Grid.Row="3">
@@ -151,8 +152,33 @@
                     <ColumnDefinition Width="81*"/>
                 </Grid.ColumnDefinitions>
                 <Label Foreground="#bcb4c5" FontSize="8" Padding="0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center">Lon:</Label>
-                <TextBox Name="longTextBox" Grid.Column="1" FontSize="8" HorizontalContentAlignment="Left" BorderThickness="0">0</TextBox>
+                <TextBox Name="longTextBox" Grid.Column="1" FontSize="8" HorizontalContentAlignment="Left" BorderThickness="0" IsReadOnly="True">0</TextBox>
             </Grid>
+
+            <Button Grid.Row="4" Content="Edit" VerticalAlignment="Center" Click="edit_click" Margin="5,0,5,0">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#2f3136"/>
+                        <Setter Property="Foreground" Value="#d1c9da"/>
+                        <Setter Property="FontSize" Value="12"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}" BorderBrush="#42403d" BorderThickness="3">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#777e88"/>
+                                <Setter Property="Foreground" Value="#f2f0f5"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
 
         </Grid>
 

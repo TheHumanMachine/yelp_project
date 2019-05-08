@@ -18,17 +18,11 @@
 
         <!-- Hours Grid  -->
         <Grid Name="hoursGrid" Grid.Column="0">
-            <StackPanel>
-                <Image RenderOptions.BitmapScalingMode="HighQuality"  Source="/UIPractive;component/Icons/clockIcon.png" 
-                       MaxHeight="30" MaxWidth="50"  VerticalAlignment="Center"/>
-                <Label HorizontalContentAlignment="Center" Foreground="#bcb4c5">Hours</Label>
-                <TextBox Name="hoursTextBox" Foreground="#bcb4c5" Background="#36393f" HorizontalContentAlignment="Center" 
-                         IsReadOnly="True" BorderThickness="0" FontWeight="Bold" Padding="0,0,0,2"></TextBox>
-            </StackPanel>
+
         </Grid>
 
         <!-- Distance Grid  -->
-        <Grid Name="distanceGrid" Grid.Column="1">
+        <Grid Name="distanceGrid" Grid.Column="2">
             <StackPanel Grid.Column="1">
                 <Image RenderOptions.BitmapScalingMode="HighQuality"  Source="/UIPractive;component/Icons/distanceIcon.png" 
                        MaxHeight="50" MaxWidth="50"  VerticalAlignment="Center"/>
@@ -39,11 +33,11 @@
         </Grid>
 
         <!-- Star Grid  -->
-        <Grid Name="starGrid" Grid.Column="2">
+        <Grid Name="starGrid" Grid.Column="4">
             <StackPanel>
                 <Image RenderOptions.BitmapScalingMode="HighQuality" Source="/uipractive;component/Icons/starIcon.png" 
                        MaxHeight="50" MaxWidth="50" Height="97" VerticalAlignment="Center"/>
-                <Label HorizontalContentAlignment="Center" Foreground="#bcb4c5">Stars:</Label>
+                <Label HorizontalContentAlignment="Center" Foreground="#bcb4c5">Total Stars:</Label>
                 <TextBox Name="starTextBox" Foreground="#bcb4c5" Background="#36393f" HorizontalContentAlignment="Center" 
                              IsReadOnly="True" BorderThickness="0" FontWeight="Bold" Padding="0,0,0,2"></TextBox>
             </StackPanel>
@@ -61,11 +55,11 @@
         </Grid>
 
         <!-- Review n Rating Grid  -->
-        <Grid Name="reviewRatingGrid" Grid.Column="4">
+        <Grid Name="reviewRatingGrid" Grid.Column="1">
             <StackPanel>
                 <Image RenderOptions.BitmapScalingMode="HighQuality" Source="/UIPractive;component/Icons/reviewRatingIcon.png"
                        MaxHeight="50" MaxWidth="50" Height="97" VerticalAlignment="Center" Stretch="Fill"/>
-                <Label HorizontalContentAlignment="Center" Foreground="#bcb4c5">Review Ratings:</Label>
+                <Label HorizontalContentAlignment="Center" Foreground="#bcb4c5">Avg Rating:</Label>
                 <TextBox Name="reviewRatingTextBox" Foreground="#bcb4c5" Background="#36393f" HorizontalContentAlignment="Center" 
                              IsReadOnly="True" BorderThickness="0" FontWeight="Bold" Padding="0,0,0,2"></TextBox>
             </StackPanel>

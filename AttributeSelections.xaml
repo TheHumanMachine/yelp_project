@@ -7,7 +7,13 @@
              mc:Ignorable="d" 
              d:DesignHeight="350" d:DesignWidth="176">
 
-
+    <UserControl.Resources>
+        <Style TargetType="ComboBoxItem">
+            <Setter Property="Background" Value="#202225"/>
+            <Setter Property="Foreground" Value="#bcb4c5"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+    </UserControl.Resources>
 
 
     <ScrollViewer Padding="0" VerticalScrollBarVisibility="Auto">
@@ -21,53 +27,124 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+
             </Grid.RowDefinitions>
 
             <Expander Header="State" Grid.Row="0" Foreground="#d1c9da" Background="#2f3136" Padding="2">
                 <ScrollViewer MaxHeight="100" VerticalScrollBarVisibility="Auto">
-                    <ListBox Name="stateBox" BorderBrush="Transparent" Background="#363d50" Foreground="#d1c9da">
+                    <ListBox Name="stateBox" BorderBrush="Transparent" Background="#363d50" Foreground="#d1c9da" SelectionChanged="stateBox_SelectionChanged">
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True" >
+                                        <Setter Property="FontWeight" Value="Bold" />
+                                        <Setter Property="Background" Value="Transparent" />
+                                        <Setter Property="Foreground" Value="white" />
+                                    </Trigger>
+                                </Style.Triggers>
+                                <Style.Resources>
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Black"/>
+                                    <!-- Background of selected item when focussed -->
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="LightCyan"/>
+                                    <!-- Background of selected item when not focussed -->
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="LightGray" />
+                                </Style.Resources>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
                     </ListBox>
                 </ScrollViewer>
             </Expander>
 
             <Expander Header="City" Grid.Row="1" Foreground="#d1c9da" Background="#2f3136">
                 <ScrollViewer MaxHeight="100" VerticalScrollBarVisibility="Auto">
-                    <ListBox Name="cityBox" BorderBrush="Transparent" Background="#363d50" Foreground="#d1c9da">
-                        <ListBoxItem Content="Unit 1"/>
-                        <ListBoxItem Content="Unit 2"/>
-                        <ListBoxItem Content="Unit 1"/>
-                        <ListBoxItem Content="Unit 2"/>
+                    <ListBox Name="cityBox" BorderBrush="Transparent" Background="#363d50" Foreground="#d1c9da" SelectionChanged="cityBox_SelectionChanged">
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True" >
+                                        <Setter Property="FontWeight" Value="Bold" />
+                                        <Setter Property="Background" Value="Transparent" />
+                                        <Setter Property="Foreground" Value="white" />
+                                    </Trigger>
+                                </Style.Triggers>
+                                <Style.Resources>
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Black"/>
+                                    <!-- Background of selected item when focussed -->
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="LightCyan"/>
+                                    <!-- Background of selected item when not focussed -->
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="LightGray" />
+                                </Style.Resources>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
                     </ListBox>
                 </ScrollViewer>
             </Expander>
 
             <Expander Header="Zipcode" Grid.Row="2" Foreground="#d1c9da" Background="#2f3136">
                 <ScrollViewer MaxHeight="100" VerticalScrollBarVisibility="Auto">
-                    <ListBox Name="zipcodeBox" BorderBrush="Transparent" Background="#363d50" Foreground="#d1c9da">
+                    <ListBox Name="zipcodeBox" BorderBrush="Transparent" Background="#363d50" Foreground="#d1c9da" SelectionChanged="zipcodeBox_SelectionChanged">
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True" >
+                                        <Setter Property="FontWeight" Value="Bold" />
+                                        <Setter Property="Background" Value="Transparent" />
+                                        <Setter Property="Foreground" Value="white" />
+                                    </Trigger>
+                                </Style.Triggers>
+                                <Style.Resources>
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Black"/>
+                                    <!-- Background of selected item when focussed -->
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="LightCyan"/>
+                                    <!-- Background of selected item when not focussed -->
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="LightGray" />
+                                </Style.Resources>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
                     </ListBox>
                 </ScrollViewer>
             </Expander>
 
             <Expander Header="Category" Grid.Row="3" Foreground="#d1c9da" Background="#2f3136">
                 <ScrollViewer MaxHeight="100" VerticalScrollBarVisibility="Auto">
-                    <ListBox Name="categoryBox" BorderBrush="Transparent" Background="#363d50" Foreground="#d1c9da">
+                    <ListBox Name="categoryBox" SelectionMode="Multiple" BorderBrush="Transparent" Background="#363d50" Foreground="#d1c9da" SelectionChanged="categoryBox_SelectionChanged">
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True" >
+                                        <Setter Property="FontWeight" Value="Bold" />
+                                        <Setter Property="Background" Value="Transparent" />
+                                        <Setter Property="Foreground" Value="white" />
+                                    </Trigger>
+                                </Style.Triggers>
+                                <Style.Resources>
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Black"/>
+                                    <!-- Background of selected item when focussed -->
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="LightCyan"/>
+                                    <!-- Background of selected item when not focussed -->
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="LightGray" />
+                                </Style.Resources>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
                     </ListBox>
                 </ScrollViewer>
             </Expander>
 
             <Expander Header="Attributes" Grid.Row="4" Foreground="#d1c9da" Background="#2f3136">
                 <ScrollViewer MaxHeight="100" VerticalScrollBarVisibility="Auto">
-                    <ListBox Name="attributesBox" BorderBrush="Transparent" Background="#363d50" Foreground="#d1c9da">
-                        <CheckBox Foreground="#d1c9da">Accepts Credit Cards</CheckBox>
-                        <CheckBox Foreground="#d1c9da">Takes Reservations</CheckBox>
-                        <CheckBox Foreground="#d1c9da">Wheelchair Accessible</CheckBox>
-                        <CheckBox Foreground="#d1c9da">Outdoor Seating</CheckBox>
-                        <CheckBox Foreground="#d1c9da">Good for Kids</CheckBox>
-                        <CheckBox Foreground="#d1c9da">Good for Groups</CheckBox>
-                        <CheckBox Foreground="#d1c9da">Delivery</CheckBox>
-                        <CheckBox Foreground="#d1c9da">Take Out</CheckBox>
-                        <CheckBox Foreground="#d1c9da">Free Wi-Fi</CheckBox>
-                        <CheckBox Foreground="#d1c9da">Bike Parking</CheckBox>
+                    <ListBox x:Name="attributesBox" BorderBrush="Transparent" Background="#363d50" Foreground="#d1c9da">
+                        <CheckBox x:Name="CC_CBox" Foreground="#d1c9da">Accepts Credit Cards</CheckBox>
+                        <CheckBox x:Name="reserve_CBox" Foreground="#d1c9da">Takes Reservations</CheckBox>
+                        <CheckBox x:Name="wheelchair_CBox" Foreground="#d1c9da">Wheelchair Accessible</CheckBox>
+                        <CheckBox x:Name="outdoorSeating_CBox" Foreground="#d1c9da">Outdoor Seating</CheckBox>
+                        <CheckBox x:Name="goodForKids_CBox" Foreground="#d1c9da">Good for Kids</CheckBox>
+                        <CheckBox x:Name="goodForGroups_CBox" Foreground="#d1c9da">Good for Groups</CheckBox>
+                        <CheckBox x:Name="delivery_CBox" Foreground="#d1c9da">Delivery</CheckBox>
+                        <CheckBox x:Name="takeOut_CBox" Foreground="#d1c9da">Take Out</CheckBox>
+                        <CheckBox x:Name="freewifi_CBox" Foreground="#d1c9da">Free Wi-Fi</CheckBox>
+                        <CheckBox x:Name="parking_CBox" Foreground="#d1c9da">Bike Parking</CheckBox>
                     </ListBox>
                 </ScrollViewer>
             </Expander>
@@ -76,12 +153,12 @@
 
                 <ScrollViewer Height="120" VerticalScrollBarVisibility="Auto">
                     <ListBox Name="mealBox" BorderBrush="Transparent" Background="#363d50" Foreground="#d1c9da">
-                        <CheckBox Foreground="#d1c9da">Breakfast</CheckBox>
-                        <CheckBox Foreground="#d1c9da">Brunch</CheckBox>
-                        <CheckBox Foreground="#d1c9da">Lunch</CheckBox>
-                        <CheckBox Foreground="#d1c9da">Dinner</CheckBox>
-                        <CheckBox Foreground="#d1c9da">Dessert</CheckBox>
-                        <CheckBox Foreground="#d1c9da">Late Night</CheckBox>
+                        <CheckBox Foreground="#d1c9da" Name="breakfast_box">Breakfast</CheckBox>
+                        <CheckBox Foreground="#d1c9da" Name="brunch_box">Brunch</CheckBox>
+                        <CheckBox Foreground="#d1c9da" Name="lunch_box">Lunch</CheckBox>
+                        <CheckBox Foreground="#d1c9da" Name="dinner_box">Dinner</CheckBox>
+                        <CheckBox Foreground="#d1c9da" Name="dessert_box">Dessert</CheckBox>
+                        <CheckBox Foreground="#d1c9da" Name="lateNight_box">Late Night</CheckBox>
                     </ListBox>
                 </ScrollViewer>
             </Expander>
@@ -90,14 +167,48 @@
 
                 <ScrollViewer MinHeight="70" VerticalScrollBarVisibility="Auto">
                     <ListBox Name="priceBox" BorderBrush="Transparent"  Background="#363d50" Foreground="#d1c9da">
-                        <CheckBox Foreground="#d1c9da">$</CheckBox>
-                        <CheckBox Foreground="#d1c9da">$$</CheckBox>
-                        <CheckBox Foreground="#d1c9da">$$$</CheckBox>
-                        <CheckBox Foreground="#d1c9da">$$$$</CheckBox>
+                        <CheckBox Foreground="#d1c9da" Name="price1">$</CheckBox>
+                        <CheckBox Foreground="#d1c9da" Name="price2">$$</CheckBox>
+                        <CheckBox Foreground="#d1c9da" Name="price3">$$$</CheckBox>
+                        <CheckBox Foreground="#d1c9da" Name="price4">$$$$</CheckBox>
                     </ListBox>
                 </ScrollViewer>
             </Expander>
 
+            <Expander Header="Sort By" Grid.Row="7" Foreground="#d1c9da" Background="#2f3136">
+                <ScrollViewer MaxHeight="100" VerticalScrollBarVisibility="Auto">
+                    <ListBox Name="sortBox" SelectionMode="Single"  BorderBrush="Transparent" Background="#363d50" Foreground="#d1c9da" SelectedIndex="0">
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True" >
+                                        <Setter Property="FontWeight" Value="Bold" />
+                                        <Setter Property="Background" Value="Transparent" />
+                                        <Setter Property="Foreground" Value="white" />
+                                    </Trigger>
+                                </Style.Triggers>
+                                <Style.Resources>
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Black"/>
+                                    <!-- Background of selected item when focussed -->
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="LightCyan"/>
+                                    <!-- Background of selected item when not focussed -->
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="LightGray" />
+                                </Style.Resources>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
+                        <ListBoxItem Content="Name(Default)"/>
+                        <ListBoxItem Content="Rating"/>
+                        <ListBoxItem Content="Most Reviewed"/>
+                        <ListBoxItem Content="Average Rating"/>
+                        <ListBoxItem Content="Check-ins"/>
+                        <ListBoxItem Content="Nearest"/>
+                    </ListBox>
+                </ScrollViewer>
+            </Expander>
+
+            <Button Name="searchBtn" Grid.Row="9" MinHeight="24" Width="auto" Content="Search" Background="#202225" Foreground="#d1c9da" Click="Button_Click">
+                
+            </Button>
         </Grid>
     </ScrollViewer>
 </UserControl>

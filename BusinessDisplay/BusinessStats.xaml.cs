@@ -25,18 +25,6 @@ namespace UIPractive
             InitializeComponent();
         }
 
-        public string Hours
-        {
-            get { return hoursTextBox.Text; }
-            set
-            {
-                if (value != hoursTextBox.Text)
-                {
-                    hoursTextBox.Text = value;
-                }
-            }
-        }
-
         public string Distance
         {
             get { return distanceTextBox.Text; }

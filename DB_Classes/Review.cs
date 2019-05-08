@@ -16,6 +16,9 @@ namespace UIPractive.DB_Classes
         private int usefulVotes;
         private int funnyVotes;
         private int coolVotes;
+        private String userID;
+        private String businessID;
+        private String businessName = "";
 
         private List<Review> comments;
 
@@ -24,6 +27,12 @@ namespace UIPractive.DB_Classes
         public int CoolVotes { get => coolVotes; set => coolVotes = value; }
         public double ReviewStars { get => reviewStars; set => reviewStars = value; }
         public string Text { get => text; set => text = value; }
+        public List<Review> Comments { get => comments; set => comments = value; }
+        public string ReviewID { get => reviewID; set => reviewID = value; }
+        public string Date { get => date; set => date = value; }
+        public string UserID { get => userID; set => userID = value; }
+        public String BusinessID { get => businessID; set => businessID = value; }
+        public string BusinessName { get => businessName; set => businessName = value; }
 
         public void AddScore(double score)
         {

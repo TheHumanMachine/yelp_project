@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UIPractive.DB_Classes;
 
 namespace UIPractive.UserReview
 {
@@ -23,6 +24,8 @@ namespace UIPractive.UserReview
         public ReviewDisplayBox()
         {
             InitializeComponent();
+
+
         }
 
         public string UserName
@@ -46,15 +49,6 @@ namespace UIPractive.UserReview
                 {
                     postDateTextBox.Text = value;
                 }
-            }
-        }
-
-        public string StarRating
-        {
-            get { return reviewStarRatingLabel.Content.ToString(); }
-            set
-            {
-                reviewStarRatingLabel.Content = value;
             }
         }
 
@@ -103,6 +97,26 @@ namespace UIPractive.UserReview
                 {
                     reviewTextBlock.Text = value;
                 }
+            }
+        }
+
+
+
+        public String ReviewRating
+        {
+            get { return reviewStarRatingLabel.Content.ToString(); }
+            set
+            {
+                reviewStarRatingLabel.Content = (value.ToString() + "/5");
+            }
+        }
+
+        public String BusinessName
+        {
+            get { return businessNameTextBox.Text; }
+            set
+            {
+                businessNameTextBox.Text = value;
             }
         }
     }

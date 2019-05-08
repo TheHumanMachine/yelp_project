@@ -1,20 +1,8 @@
 ﻿using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using UIPractive.Business_View;
+using UIPractive.Map_View;
 using UIPractive.User_View;
-using UIPractive.UserReview;
 
 namespace UIPractive
 {
@@ -25,53 +13,70 @@ namespace UIPractive
     {
         private string connString = "Host=localhost;Username=postgres;Password=1111111;Database=yelp";
         private NpgsqlConnection connection;
-        UserMainView userView;
+        TransactionManager Tmgr;
+
+        private UserMainView userView;
+        private BusinessMainView businessView;
+        private MapView mapView;
+        private BusinessOwnerView businessOwnerView;
+
+        private MainVeiwButtons mainViewButtons;
 
         public MainWindow()
         {
             InitializeComponent();
             ConnectToDatabase();
-            userView = new UserMainView(connection);
-            this.AddChild(userView);
-        }
+            Tmgr = new TransactionManager(connection);
 
+            userView = new UserMainView(connection, Tmgr);
+            businessView = new BusinessMainView(connection);
+            mapView = new MapView(connection, Tmgr);
+            businessOwnerView = new BusinessOwnerView(connection, Tmgr);
+
+            businessView.Attri.AddMap(mapView);
+
+            Tmgr.CurrentUser = userView.currentUser;
+            businessView.Attri.AddManager(Tmgr);
+            businessView.container.AddManager(Tmgr);
+            mainViewButtons = new MainVeiwButtons();
+
+            mainViewButtons.ownerButton.Click += SetOwnerView;
+            mainViewButtons.mapButton.Click += SetMapView;
+            mainViewButtons.businessButton.Click += SetBusinessView;
+            mainViewButtons.userButton.Click += SetUserView;
+            buttons.Children.Add(mainViewButtons);
+            view.Children.Add(userView);
+        }
+        
         private void ConnectToDatabase()
         {
             connection = new NpgsqlConnection(connString);
             connection.Open();
         }
 
-
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void SetUserView(object sender, RoutedEventArgs e)
         {
-
+            view.Children.Clear();
+            view.Children.Add(userView);
         }
 
-        private void ListBox_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
+        private void SetBusinessView(object sender, RoutedEventArgs e)
         {
-
+            view.Children.Clear();
+            view.Children.Add(businessView);
+            businessView.Attri.PopulateStates();
         }
 
-        private void AddReviewBox()
+        private void SetOwnerView(object sender, RoutedEventArgs e)
         {
-            ReviewDisplayBox temp = new ReviewDisplayBox();
-            temp.UserName = "carlos";
-            temp.FunnyReaction = "4";
-            temp.CoolReaction = "2";
-            temp.UsefulReaction = "0";
-            temp.StarRating = "3/5";
-            temp.Date = "2019-10-10";
-            temp.ReviewText = "This was the most awesome thing ever";
-            temp.Height = 200;
-
-            //BusinessDisplayView.Children.Add(temp);
+            view.Children.Clear();
+            view.Children.Add(businessOwnerView);
         }
 
-        private void AddBusinessDisplayBox()
+        private void SetMapView(object sender, RoutedEventArgs e)
         {
-            BusinessDisplayBox temp = new BusinessDisplayBox();
-            temp.AddBusinessDisplayComponents();
-            //BusinessDisplayView.Children.Add(temp);
+            view.Children.Clear();
+            view.Children.Add(mapView);
         }
     }
 }

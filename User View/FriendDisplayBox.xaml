@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="130" d:DesignWidth="250" Height="130" Width="250">
 
-    <Grid Background="#333333">
+    <Grid Background="#36393f">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="111*"/>
         </Grid.ColumnDefinitions>
@@ -39,16 +39,16 @@
                         <RowDefinition Height="43*"/>
                     </Grid.RowDefinitions>
                     <!-- UserName, Join labels n TextBox-->
-                    <Label Name="userNameLabel" Foreground="#bcb4c5" Background="#333333" HorizontalContentAlignment="Center" FontSize="10"
+                    <Label Name="userNameLabel" Foreground="#bcb4c5" Background="#36393f" HorizontalContentAlignment="Center" FontSize="10"
                              BorderThickness="0" Padding="2,0,0,2" Grid.Row="0" VerticalContentAlignment="Center" Content="Name:" Grid.Column="0"/>
 
-                    <Label Name="joinedLabel" Foreground="#bcb4c5" Background="#333333" HorizontalContentAlignment="Right" FontSize="8"
+                    <Label Name="joinedLabel" Foreground="#bcb4c5" Background="#36393f" HorizontalContentAlignment="Right" FontSize="8"
                              BorderThickness="0" Padding="2,0,0,2" Grid.Row="1" VerticalContentAlignment="Top" Content="Joined:" Grid.Column="0"/>
 
-                    <TextBox Name="userNameTextBox" Foreground="#bcb4c5" Background="#333333" HorizontalContentAlignment="Left" FontSize="10"
+                    <TextBox Name="userNameTextBox" Foreground="#bcb4c5" Background="#36393f" HorizontalContentAlignment="Left" FontSize="10"
                              IsReadOnly="True" BorderThickness="0" Padding="0,0,0,0" Grid.Row="0" VerticalContentAlignment="Center" Grid.Column="1"/>
 
-                    <TextBox Name="joinedTextBox" Foreground="#bcb4c5" Background="#333333" HorizontalContentAlignment="Left" FontSize="8"
+                    <TextBox Name="joinedTextBox" Foreground="#bcb4c5" Background="#36393f" HorizontalContentAlignment="Left" FontSize="8"
                              IsReadOnly="True" BorderThickness="0" Padding="0,0,0,2" Grid.Row="1" VerticalContentAlignment="Top" Grid.Column="1"/>
 
                 </Grid>
@@ -93,16 +93,16 @@
 
 
                 <!--TextBoxes for Funny/Cool/Useful/Stars/Fans-->
-                <TextBox Name="funnyTextBox" Foreground="#bcb4c5" Background="#333333" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                <TextBox Name="funnyTextBox" Foreground="#bcb4c5" Background="#36393f" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                              IsReadOnly="True" BorderThickness="0" FontWeight="Bold" Padding="0,0,0,2" Grid.Column="0" Grid.Row="2"/>
 
-                <TextBox Name="coolTextBox" Foreground="#bcb4c5" Background="#333333" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                <TextBox Name="coolTextBox" Foreground="#bcb4c5" Background="#36393f" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                              IsReadOnly="True" BorderThickness="0" FontWeight="Bold" Padding="0,0,0,2" Grid.Column="1" Grid.Row="2"/>
 
-                <TextBox Name="usefulTextBox" Foreground="#bcb4c5" Background="#333333" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                <TextBox Name="usefulTextBox" Foreground="#bcb4c5" Background="#36393f" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                              IsReadOnly="True" BorderThickness="0" FontWeight="Bold" Padding="0,0,0,2" Grid.Column="2" Grid.Row="2"/>
 
-                <TextBox Name="starTextBox" Foreground="#bcb4c5" Background="#333333" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                <TextBox Name="starTextBox" Foreground="#bcb4c5" Background="#36393f" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                              IsReadOnly="True" BorderThickness="0" FontWeight="Bold" Padding="0,0,0,2" Grid.Column="3" Grid.Row="2"/>
             </Grid>
 

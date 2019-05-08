@@ -3,11 +3,25 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        WindowStartupLocation="CenterScreen"
         xmlns:uipractive="clr-namespace:UIPractive"
         xmlns:userreview="clr-namespace:UIPractive.UserReview"
         xmlns:user_view="clr-namespace:UIPractive.User_View"
         mc:Ignorable="d"
-        Title="Yelp Clone" Height="600" Width="900">
+        Title="Yelp Clone" Height="700" Width="1100">
+
+    <Grid Name="mainView">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Name="buttonViewColumn" Width="31*"/>
+            <ColumnDefinition Name="mainViewColumn" Width="242*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Name="buttons" Grid.Column="0"/>
+        <Grid Name="view" Grid.Column="1"/>
+
+
+    </Grid>
+
     <Window.Resources>
 
         <Style TargetType="{x:Type ListBoxItem}">

@@ -20,11 +20,16 @@ namespace UIPractive.User_View
     /// </summary>
     public partial class UserProfile : UserControl
     {
-
+        TransactionManager mgr;
 
         public UserProfile()
         {
             InitializeComponent();
+        }
+
+        public void AddManager(TransactionManager mgr)
+        {
+            this.mgr = mgr;
         }
 
         public void UpdateUserProfile(User nUser)
@@ -38,6 +43,12 @@ namespace UIPractive.User_View
             fanTextBox.Text      = nUser.Fans.ToString();
             longTextBox.Text     = nUser.Longitude.ToString();
             latTextBox.Text      = nUser.Latitude.ToString();
+        }
+
+        private void edit_click(object sender, RoutedEventArgs e)
+        {
+            var editWin = new EditUserCoordinate(latTextBox, longTextBox, mgr);
+            editWin.ShowDialog();
         }
 
     }

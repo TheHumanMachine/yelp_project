@@ -7,7 +7,7 @@
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="250">
-    <Grid Background="#3f3e45">
+    <Grid Background="#202225">
         <GroupBox Header="Friends List" Foreground="#e0d7e3">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <!-- Resizes the scrollbar -->

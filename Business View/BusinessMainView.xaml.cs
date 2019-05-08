@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Npgsql;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,13 @@ namespace UIPractive.Business_View
     /// </summary>
     public partial class BusinessMainView : UserControl
     {
-        public BusinessMainView()
+        private NpgsqlConnection connection;
+
+        public BusinessMainView(NpgsqlConnection conn)
         {
             InitializeComponent();
+            connection = conn;
+            Attri.AddContainer(container);
         }
     }
 }

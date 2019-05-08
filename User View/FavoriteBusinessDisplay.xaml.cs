@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UIPractive.DB_Classes;
 
 namespace UIPractive.User_View
 {
@@ -22,16 +23,45 @@ namespace UIPractive.User_View
     /// </summary>
     public partial class FavoriteBusinessDisplay : UserControl
     {
-       
+        private String SelectedBusiness ="";
+        private TransactionManager mgr;
         public FavoriteBusinessDisplay()
         {
             InitializeComponent();
-            AddFavoriteBusinessDisplayBox();
+            //AddFavoriteBusinessDisplayBox();
         }
 
-        private void AddFavoriteBusinessDisplayBox()
+        public void AddManager(TransactionManager mgr)
         {
+            this.mgr = mgr;
+        }
 
+        public void AddFavoriteBusinessDisplayBox(List<Business> businessList)
+        {
+            foreach(var i in businessList)
+            {
+                var busDisplay = new FavoriteBusinessDisplayBox(i);
+                favoriteBusinessStackPanel.Children.Add(busDisplay);
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if(!String.IsNullOrEmpty(SelectedBusiness))
+            {
+                mgr.ExecuteDeleteFavoriteBusiness(SelectedBusiness);
+            }
+        }
+
+        private void FavoriteBusinessStackPanel_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            var uiElement = e.Source as FrameworkElement;
+            if (uiElement != null)
+            {
+                var business = (FavoriteBusinessDisplayBox)uiElement;
+                SelectedBusiness = business.Business_id;
+                Console.WriteLine("The name is: " + business.nameTextBox.ToString());
+            }
         }
     }
 }

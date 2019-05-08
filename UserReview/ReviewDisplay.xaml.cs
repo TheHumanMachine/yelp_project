@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using UIPractive.DB_Classes;
 
 namespace UIPractive.UserReview
 {
@@ -25,9 +14,23 @@ namespace UIPractive.UserReview
             InitializeComponent();
         }
 
-        public void AddReview(ReviewDisplayBox review)
+        public void SetHeader(string nName)
         {
-            reviewStackPanel.Children.Add(review);
+            groupBox.Header = nName;
+        }
+
+        public void AddReview(Review rev, string userName)
+        {
+            var temp = new ReviewDisplayBox();
+            temp.ReviewText = rev.Text;
+            temp.FunnyReaction = rev.FunnyVotes.ToString();
+            temp.CoolReaction = rev.CoolVotes.ToString();
+            temp.UsefulReaction = rev.UsefulVotes.ToString();
+            temp.ReviewRating = rev.ReviewStars.ToString();
+            temp.Date = rev.Date;
+            temp.UserName = userName;
+            temp.BusinessName = rev.BusinessName;
+            reviewStackPanel.Children.Add(temp);
         }
     }
 }

@@ -1,0 +1,105 @@
+﻿<UserControl x:Class="UIPractive.Business_View.BusinessOwnerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UIPractive.Business_View"
+             xmlns:userreview="clr-namespace:UIPractive.UserReview"
+             xmlns:user_view="clr-namespace:UIPractive.User_View"
+             xmlns:uipractive="clr-namespace:UIPractive"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="900">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#2f3136"/>
+            <Setter Property="Foreground" Value="#d1c9da"/>
+            <Setter Property="Margin" Value="75,0,75,0"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="#42403d" BorderThickness="3">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#777e88"/>
+                    <Setter Property="Foreground" Value="#f2f0f5"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="Foreground" Value="#d1c9da"/>
+            <Setter Property="Padding" Value="0.5"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Height" Value="22"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Foreground" Value="#d1c9da"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="IsReadOnly" Value="True"/>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Background="#202225">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="113*"/>
+            <ColumnDefinition Width="112*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Column 0 | User profile-->
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="17*"/>
+                <RowDefinition Height="58*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Row 0 | User Profile Info for everything related to the user-->
+            <uipractive:BusinessInformation x:Name="busname" Grid.Row="0"/>
+
+            <!-- Row 1 | Change user, favorite business, Friend list-->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="139*"/>
+                </Grid.ColumnDefinitions>
+                <!-- Set User, favorite business -->
+                <Grid Grid.Column="0" Name="UserDisplayGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25*"/>
+                        <RowDefinition Height="100*"/>
+                    </Grid.RowDefinitions>
+                    <local:BusinessOwnerInfo x:Name="busInfo" Grid.Row="0"/>
+                    <!-- Row 0 | Set User-->
+                    <!-- Row 1 | Favorite business display-->
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="278*"/>
+                            <RowDefinition Height="93*"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Name="Checkinsstack" Grid.Row="0"/>
+                        
+                        <Button Grid.Row="1" Content="Select Business" Margin="50,20,70,20" Click="SelectBusiness_Click"/>
+                    </Grid>
+                    
+                    
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <StackPanel Name="checkins"/>
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <!-- Column1 | Friend reviews-->
+        <userreview:ReviewDisplay x:Name="reviewsDisplays" Grid.Column="1"/>
+    </Grid>
+</UserControl>

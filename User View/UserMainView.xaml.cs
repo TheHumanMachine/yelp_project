@@ -22,15 +22,28 @@ namespace UIPractive.User_View
     public partial class UserMainView : UserControl
     {
         private NpgsqlConnection connection;
-        private string currentUser = "RYkCobCYYZ2HqL6TdEqoqQ";
+        public string currentUser = "uXjR2GhCAYhqxVr21aC4vQ";
+        private TransactionManager mgr;
+        private SetUserDisplay SUserDisplay;
+        private FriendReviewDisplay friendReviewDisplay;
 
-        public UserMainView(NpgsqlConnection conn)
+        public UserMainView(NpgsqlConnection conn, TransactionManager mgr)
         {
             InitializeComponent();
-            setUserDisplay.currentUserBtn.Click += NewUserHandler;
+            this.mgr = mgr;
             connection = conn;
+            friendReviewDisplay = new FriendReviewDisplay(mgr, currentUser);
+            userInfo.AddManager(mgr);
+            businessDisplay.AddManager(mgr);
+            friendReviews.Children.Add(friendReviewDisplay);
             LoadUserInformation();
-            setUserDisplay.userIDTextBox.Text = currentUser;
+            SUserDisplay = new SetUserDisplay(mgr,this);
+            SUserDisplay.userIDTextBox.Text = currentUser;
+            SUserDisplay.currentUserBtn.Click += NewUserHandler;
+            UserDisplayGrid.Children.Add(SUserDisplay);
+            LoadFavoriteBusinesses();
+            businessDisplay.removeButton.Click += FavoriteBusinessesChanged;
+            this.Loaded += FavoriteBusinessesChanged;
         }
 
         /// <summary>
@@ -47,9 +60,9 @@ namespace UIPractive.User_View
         /// </summary>
         private void NewUserHandler(object sender, RoutedEventArgs e)
         {
-            if (!setUserDisplay.userIDTextBox.Text.Equals(currentUser))
+            if (!SUserDisplay.search.userID.Equals(currentUser))
             {
-                currentUser = setUserDisplay.userIDTextBox.Text;
+                currentUser = SUserDisplay.userIDTextBox.Text;
                 LoadUserInformation();
             }
         }
@@ -57,13 +70,16 @@ namespace UIPractive.User_View
         /// <summary>
         /// Loads new users information into the revelant profile boxes 
         /// </summary>
-        private void LoadUserInformation()
+        public void LoadUserInformation()
         {
             friendList.Clear();
+            friendReviewDisplay.displayStackPanel.Children.Clear();
             var nUser = new User();
             GetUserStats(nUser, currentUser); // Fills nUser with values of the currentUser from db
+            mgr.CurrentUser = currentUser;
             UpdateUserProfile(nUser);
             LoadUserFriendList(currentUser);
+            LoadUserFriendsReview(currentUser);
         }
 
         /// <summary>
@@ -74,12 +90,14 @@ namespace UIPractive.User_View
         {
             User nUser;
             // Gets all of the information about the user's friends
-            using (var cmd = new NpgsqlCommand("select userinfo.name, userinfo.average_stars, " +
-                "userinfo.yelping_since, userinfo.funny, userinfo.cool, userinfo.useful " +
-                "FROM friend " +
-                "Natural Join userinfo " +
-                "WHERE friend_id ='" + userID + "'", connection))
+            String sql_state = "select userinfo.name, userinfo.average_stars," +
+                " userinfo.yelping_since, userinfo.funny, userinfo.cool, userinfo.useful" +
+                " from userinfo" +
+                " where user_id in (select friend_id from friend where user_id='"+ userID + "')";
 
+
+            using (var cmd = new NpgsqlCommand(sql_state, connection))
+                
             using (var reader = cmd.ExecuteReader())
                 // Should only ever return 1 user
                 while (reader.Read())
@@ -93,6 +111,16 @@ namespace UIPractive.User_View
                     nUser.Useful = reader.GetInt32(5);
                     AddFriend(nUser);
                 }
+        }
+
+        private void LoadUserFriendsReview(string userID)
+        {
+            var reviewList = mgr.ExecuteFriendsLastestReviewQuery(userID);
+            foreach (var i in reviewList)
+            {
+                var name = mgr.ExecuteNameQuery(i.UserID);
+                friendReviewDisplay.AddReview(i, name);
+            }
         }
 
         private void LoadFriendReviews(string userID)
@@ -128,21 +156,25 @@ namespace UIPractive.User_View
                 }
         }
 
-        private void RemoveFavoriteBusiness()
-        {
-
-        }
-
-        private void AddFavoriteBusiness()
-        {
-
-        }
 
         private void AddFriend(User nUser)
         {
             var nFriend = new FriendDisplayBox(nUser);
             friendList.AddFriendBox(nFriend);
         }
+
+        private void FavoriteBusinessesChanged(object sender, EventArgs e)
+        {
+            LoadFavoriteBusinesses();
+        }
+
+        private void LoadFavoriteBusinesses()
+        {
+            businessDisplay.favoriteBusinessStackPanel.Children.Clear();
+            var busList = mgr.ExecuteFavoriteBusinessQuery();
+            businessDisplay.AddFavoriteBusinessDisplayBox(busList);
+        }
+        
 
 
     }

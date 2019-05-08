@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="UIPractive.Map_View.MapView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UIPractive.Map_View"
+             xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="#2f3136">
+        <m:Map x:Name="bing_map" CredentialsProvider="Ahr2d-4Y-zJJCO_dxIhqAWJpgsIvClyirUBvUUan_uH8mO_N45vSbir0hZDbCaH3" Mode="AerialWithLabels" Center="48.005034,-122.1974381" ZoomLevel="16"/>
+    </Grid>
+</UserControl>

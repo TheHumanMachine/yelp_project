@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UIPractive.DB_Classes;
+using UIPractive.UserReview;
 
 namespace UIPractive.User_View
 {
@@ -20,14 +22,28 @@ namespace UIPractive.User_View
     /// </summary>
     public partial class FriendReviewDisplay : UserControl
     {
-        public FriendReviewDisplay()
+        private String userID;
+        private TransactionManager mgr;
+        public FriendReviewDisplay(TransactionManager mgr, String userID)
         {
             InitializeComponent();
+            this.mgr = mgr;
+            this.userID = userID;
         }
 
-        private void AddFriendReviewDisplayBox()
+        public void AddReview(Review rev, string userName)
         {
+            var temp = new ReviewDisplayBox();
+            temp.ReviewText = rev.Text;
+            temp.FunnyReaction = rev.FunnyVotes.ToString();
+            temp.CoolReaction = rev.CoolVotes.ToString();
+            temp.UsefulReaction = rev.UsefulVotes.ToString();
+            temp.ReviewRating = rev.ReviewStars.ToString();
+            temp.Date = rev.Date;
+            temp.UserName = userName;
 
+            displayStackPanel.Children.Add(temp);
         }
+
     }
 }

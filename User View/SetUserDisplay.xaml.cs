@@ -20,15 +20,26 @@ namespace UIPractive.User_View
     /// </summary>
     public partial class SetUserDisplay : UserControl
     {
-        
-        public SetUserDisplay()
+        public String user;
+        private TransactionManager mgr;
+        public SetUserSearch search;
+        private UserMainView umv;
+        public SetUserDisplay(TransactionManager mgr, UserMainView umv)
         {
             InitializeComponent();
+            this.umv = umv;
+            this.mgr = mgr;
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+            search = new SetUserSearch(mgr);
+            search.ShowDialog();
+            umv.currentUser = search.userID;
+            userIDTextBox.Text = search.userID;
+            nameTextBox.Text = search.userName;
+            umv.LoadUserInformation();
         }
     }
 }

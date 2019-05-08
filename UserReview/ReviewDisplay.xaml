@@ -9,7 +9,7 @@
     <!-- background: #36393f -->
     <!-- font color: #bcb4c5 -->
     <Grid Background="#36393f">
-        <GroupBox Padding="5" Foreground="#bcb4c5" Header="Reviews">
+        <GroupBox Name="groupBox" Padding="5" Foreground="#bcb4c5" Header="Reviews">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <StackPanel Name="reviewStackPanel">
                 </StackPanel>

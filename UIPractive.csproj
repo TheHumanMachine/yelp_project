@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Maps.MapControl.WPF, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Maps.MapControl.WPF.1.0.0.3\lib\net40-Client\Microsoft.Maps.MapControl.WPF.dll</HintPath>
+    </Reference>
     <Reference Include="Npgsql, Version=4.0.5.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
       <HintPath>..\packages\Npgsql.4.0.5\lib\net451\Npgsql.dll</HintPath>
     </Reference>
@@ -59,6 +62,15 @@
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Controls.DataVisualization.Toolkit.4.0.0.0\lib\net40-Client\System.Windows.Controls.DataVisualization.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Input.Toolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WPFToolkit.3.5.50211.1\lib\System.Windows.Controls.Input.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Layout.Toolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WPFToolkit.3.5.50211.1\lib\System.Windows.Controls.Layout.Toolkit.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -71,17 +83,58 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WPFToolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WPFToolkit.3.5.50211.1\lib\WPFToolkit.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Business View\BusinessDisplayContainer.xaml.cs">
+      <DependentUpon>BusinessDisplayContainer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Business View\BusinessMainView.xaml.cs">
       <DependentUpon>BusinessMainView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Business View\BusinessOwnerInfo.xaml.cs">
+      <DependentUpon>BusinessOwnerInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Business View\BusinessOwnerView.xaml.cs">
+      <DependentUpon>BusinessOwnerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Business View\SelectBusinessWindow.xaml.cs">
+      <DependentUpon>SelectBusinessWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessDisplay\BusinessReviewContainer.xaml.cs">
+      <DependentUpon>BusinessReviewContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessDisplay\CheckInDisplay.xaml.cs">
+      <DependentUpon>CheckInDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessDisplay\CheckInGraph.xaml.cs">
+      <DependentUpon>CheckInGraph.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessDisplay\ReviewsWindow.xaml.cs">
+      <DependentUpon>ReviewsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DB_Classes\Business.cs" />
+    <Compile Include="DB_Classes\CheckIn.cs" />
     <Compile Include="DB_Classes\Review.cs" />
+    <Compile Include="MainVeiwButtons.xaml.cs">
+      <DependentUpon>MainVeiwButtons.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindowView.xaml.cs">
+      <DependentUpon>MainWindowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Map View\MapView.xaml.cs">
+      <DependentUpon>MapView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionManager.cs" />
+    <Compile Include="User View\EditUserCoordinate.xaml.cs">
+      <DependentUpon>EditUserCoordinate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="User View\FavoriteBusinessDisplay.xaml.cs">
       <DependentUpon>FavoriteBusinessDisplay.xaml</DependentUpon>
     </Compile>
@@ -103,6 +156,9 @@
     <Compile Include="User View\SetUserDisplay.xaml.cs">
       <DependentUpon>SetUserDisplay.xaml</DependentUpon>
     </Compile>
+    <Compile Include="User View\SetUserSearch.xaml.cs">
+      <DependentUpon>SetUserSearch.xaml</DependentUpon>
+    </Compile>
     <Compile Include="User View\UserMainView.xaml.cs">
       <DependentUpon>UserMainView.xaml</DependentUpon>
     </Compile>
@@ -120,7 +176,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Business View\BusinessDisplayContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Business View\BusinessMainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Business View\BusinessOwnerInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Business View\BusinessOwnerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Business View\SelectBusinessWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -132,7 +204,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="BusinessDisplay\BusinessReviewContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="BusinessDisplay\BusinessStats.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BusinessDisplay\CheckInDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BusinessDisplay\CheckInGraph.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BusinessDisplay\ReviewsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainVeiwButtons.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -160,6 +252,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MainWindowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Map View\MapView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User View\EditUserCoordinate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="User View\FavoriteBusinessDisplay.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -185,6 +289,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="User View\SetUserDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User View\SetUserSearch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -223,6 +331,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include=".gitignore" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -258,6 +367,23 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Icons\profileIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\business_selected.png" />
+    <Resource Include="Icons\business_unselected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\user_selected.png" />
+    <Resource Include="Icons\user_unselected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\map_unselected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\map_selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\businessOwner_selected.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

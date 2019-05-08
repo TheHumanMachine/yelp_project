@@ -1,0 +1,52 @@
+﻿<Window x:Class="UIPractive.User_View.EditUserCoordinate"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UIPractive.User_View"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d"
+        Title="Edit Coordinates" Height="150" Width="250">
+    <Grid Background="#2f3136"> 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="8*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="1" Foreground="#d1c9da" Grid.Column="0" Content="Latitude:" VerticalAlignment="Center"/>
+        <Label Grid.Row="2" Foreground="#d1c9da" Grid.Column="0" Content="Longitude:" VerticalAlignment="Center"/>
+
+        <TextBox Name="latBox" Foreground="#d1c9da" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" BorderThickness="1" Background="Transparent"/>
+        <TextBox Name="lonBox" Foreground="#d1c9da" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center"  BorderThickness="1" Background="Transparent"/>
+
+        <Button Grid.Row="3" Grid.Column="1" Content="Submit" Click="submit_click">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#2f3136"/>
+                    <Setter Property="Foreground" Value="#d1c9da"/>
+                    <Setter Property="FontSize" Value="12"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}" BorderBrush="#42403d" BorderThickness="3">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#777e88"/>
+                            <Setter Property="Foreground" Value="#f2f0f5"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+    </Grid>
+</Window>

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UIPractive.DB_Classes;
 
 namespace UIPractive.User_View
 {
@@ -20,9 +21,19 @@ namespace UIPractive.User_View
     /// </summary>
     public partial class FavoriteBusinessDisplayBox : UserControl
     {
-        public FavoriteBusinessDisplayBox()
+        private String business_id;
+        public FavoriteBusinessDisplayBox(Business bus)
         {
             InitializeComponent();
+            business_id = bus.BusinessID;
+            addressTextBox.Text = bus.Address;
+            cityTextBox.Text = bus.City;
+            stateTextBox.Text = bus.State;
+            zipcodeTextBox.Text = bus.Zipcode;
+            nameTextBox.Text = bus.Name;
+            reviewStarRatingLabel.Content = bus.ReviewRating.ToString();
         }
+        
+        public string Business_id { get => business_id; set => business_id = value; }
     }
 }

@@ -6,20 +6,20 @@
              xmlns:local="clr-namespace:UIPractive.User_View"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="250">
-    <Grid Background="#3f3e45">
+    <Grid Background="#202225">
         <Grid.RowDefinitions>
             <RowDefinition Height="271*"/>
             <RowDefinition Height="29*"/>
         </Grid.RowDefinitions>
         <GroupBox Grid.Row="0" Header="Favorite Businesses" Foreground="#e0d7e3">
-            <StackPanel Name="favoriteBusinessStackPanel"/>
+            <StackPanel Name="favoriteBusinessStackPanel" MouseDown="FavoriteBusinessStackPanel_MouseDown"/>
         </GroupBox>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="17*"/>
                 <ColumnDefinition Width="8*"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="1" Foreground="#bcb4c5" Background="#595959">Remove</Button>
+            <Button Name="removeButton" Grid.Column="1" Foreground="#bcb4c5" Background="#595959" Click="Button_Click">Remove</Button>
         </Grid>
 
     </Grid>
